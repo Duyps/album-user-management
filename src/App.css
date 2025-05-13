@@ -33,7 +33,7 @@ body{
         display: none;
     }
     .side{
-        position: absolute;
+        position: fixed;
     }
     .sidebar{
         transform: translateX(-100%);

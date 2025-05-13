@@ -1,12 +1,29 @@
-# React + Vite
+# React Album & User Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a responsive web application built with **React** that displays albums, users, and photos using the [JSONPlaceholder](https://jsonplaceholder.typicode.com) API. It supports a detailed view of albums and users, includes a sidebar with responsive behavior, and integrates a lightbox for photo viewing.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Responsive layout for screens ≥1280px
+- ✅ Sidebar with expand/collapse functionality and mobile toggle
+- ✅ Album list with title, user info, and detail link
+- ✅ Album detail page with:
+  - User information and contact links (email, website, phone)
+  - Avatar fetched from [UI Avatars](https://ui-avatars.com)
+  - Photo grid (first 10 photos)
+  - Photo viewer (zoom, rotate, next/prev navigation)
+- ✅ User list with avatars, contact details, and profile link
+- ✅ Loading indicators during API calls
+- ✅ Cursor pointers on interactive elements
+- ✅ All images have `alt` attributes
+- ✅ External links open in a new tab
 
-## Expanding the ESLint configuration
+## 🧱 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** + **Vite** – fast development build tool
+- **React Router** – routing and navigation
+- **FontAwesome** – UI icons
+- **Custom CSS** – responsive styling
+- **UI Avatars API** – dynamic avatar generation
+- **JSONPlaceholder** – mock REST API for albums, users, and photos
+
