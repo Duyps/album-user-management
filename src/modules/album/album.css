@@ -75,9 +75,7 @@
 .perpage{
     margin-top: 30px;
     text-align: right;
-    select{
-      
-    }
+    
 }
 .pagination {
     justify-content: end;
@@ -166,5 +164,21 @@
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 16px;
   padding: 16px;
+}
+.photo-thumb {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.photo-thumb:hover {
+  transform: scale(1.05);
+}
+.info-container{
+  background-color: white;
+  padding: 0 50px 50px 50px ;
+  margin-top: 20px;
+  box-shadow: rgba(60, 60, 60, 0.063) 5px 5px 10px 5px;
 }
 }

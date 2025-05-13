@@ -34,9 +34,9 @@ nav{
   }
   .collapse-btn{
     margin-top: auto;
-    margin-bottom: 10px;
     border: none;
     background-color: inherit;
+    transform: translateY(20px);
     color: #3388FF;
     font-size: larger;
     cursor: pointer;

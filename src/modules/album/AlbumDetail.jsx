@@ -1,7 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './album.css'
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
+import './album.css';
 
 function AlbumDetail() {
   const { id } = useParams();
@@ -9,9 +11,10 @@ function AlbumDetail() {
   const [album, setAlbum] = useState(null);
   const [user, setUser] = useState(null);
   const [photos, setPhotos] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   useEffect(() => {
-    // B1: Lấy album
     fetch(`https://jsonplaceholder.typicode.com/albums/${id}`)
       .then(res => res.json())
       .then(data => {
@@ -27,6 +30,11 @@ function AlbumDetail() {
       .then(photoData => setPhotos(photoData));
   }, [id]);
 
+  const openLightbox = (index) => {
+    setPhotoIndex(index);
+    setIsOpen(true);
+  };
+
   if (!album || !user) return <p>Loading...</p>;
 
   return (
@@ -35,27 +43,50 @@ function AlbumDetail() {
         ← Show Album
       </button>
 
-      <div className="user-info">
-        <img
-          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&rounded=true`}
-          alt={`${user.name} avatar`}
-          className="avatar"
-        />
-        <div className='infor'>
-          <Link to={`/users/${user.id}`} className="user-name-link"><h2>{user.name}</h2></Link>
-          <a href={`mailto:${user.email}`}>{user.email}</a>
+      <div className="info-container">
+        <div className="user-info">
+          <img
+            src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&rounded=true`}
+            alt={`${user.name} avatar`}
+            className="avatar"
+          />
+          <div className='infor'>
+            <Link to={`/users/${user.id}`} className="user-name-link"><h2>{user.name}</h2></Link>
+            <a href={`mailto:${user.email}`}>{user.email}</a>
+          </div>
+        </div>
+
+        <h3>{album.title}</h3>
+
+        <div className="photo-grid">
+          {photos.map((photo, index) => (
+            <img
+              key={photo.id}
+              src={photo.thumbnailUrl}
+              alt={photo.title}
+              onClick={() => openLightbox(index)}
+              className="photo-thumb"
+            />
+          ))}
         </div>
       </div>
 
-      <h3>{album.title}</h3>
-
-      <div className="photo-grid">
-        {photos.map(photo => (
-          <a key={photo.id} href={photo.url} target="_blank" rel="noopener noreferrer">
-            <img src={photo.thumbnailUrl} alt={photo.title} />
-          </a>
-        ))}
-      </div>
+      {isOpen && (
+        <Lightbox
+          mainSrc={photos[photoIndex].url}
+          nextSrc={photos[(photoIndex + 1) % photos.length].url}
+          prevSrc={photos[(photoIndex + photos.length - 1) % photos.length].url}
+          onCloseRequest={() => setIsOpen(false)}
+          onMovePrevRequest={() =>
+            setPhotoIndex((photoIndex + photos.length - 1) % photos.length)
+          }
+          onMoveNextRequest={() =>
+            setPhotoIndex((photoIndex + 1) % photos.length)
+          }
+          imageCaption={photos[photoIndex].title}
+          enableZoom={true}
+        />
+      )}
     </div>
   );
 }

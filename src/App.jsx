@@ -3,12 +3,10 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css'
 import Sidebar from './components/sidebar/Sidebar'
 import AlbumList from './modules/album/AlbumList';
-import PostsWithAvatar from './PostsWithAvatar';
 import AlbumDetail from './modules/album/AlbumDetail';
 import UserList from './modules/user/UserList';
 import UserDetail from './modules/user/UserDetail';
 import Header from './components/header/Header';
-import PageLayout from './PageLayout';
 
 function App() {
   
