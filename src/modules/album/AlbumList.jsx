@@ -21,6 +21,7 @@ function AlbumList() {
                 axios.get("https://jsonplaceholder.typicode.com/albums"),
                 axios.get("https://jsonplaceholder.typicode.com/users"),
             ]);
+            
             setAlbums(albumRes.data);
             setUsers(userRes.data);
             setLoading(false);
@@ -30,14 +31,14 @@ function AlbumList() {
 
 
     if (loading) return <p>Loading...</p>
+
   return (
     <>
     <div className="main">
-        <h2 className='title'>Album List</h2>
         <table className='table'>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th className='id'>ID</th>
                     <th>Title</th>
                     <th>User</th>
                     <th>Actions</th>
@@ -48,11 +49,11 @@ function AlbumList() {
                     const user = users.find(u => u.id === album.userId);
                     return (
                     <tr key={album.id}>
-                        <td>{album.id}</td>
+                        <td className='album-id'>{album.id}</td>
                         <td>{album.title}</td>
                         <td>
                         <Link to={`/users/${user.id}`} className="user-link">
-                            <img src={`https://ui-avatars.com/api/?name=${user.name}`} alt={user.name} className="avatar" />
+                            <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&rounded=true`} alt={user.name} className="avatar" />
                             {user.name}
                         </Link>
                         </td>
@@ -64,7 +65,9 @@ function AlbumList() {
                 })}
             </tbody>
         </table>
-        <div style={{ marginBottom: "16px" }}>
+                
+       
+        <div style={{ marginBottom: "16px" }} className='perpage' >
             <label htmlFor="size">Albums per page: </label>
             <select
                 id="size"

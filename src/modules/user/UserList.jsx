@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import './user.css'
 function UserList() {
     const [users, setUsers] = useState([]);
     useEffect(() => {
@@ -13,11 +13,11 @@ function UserList() {
 
   return (
     <div className="main">
-        <h2 className='title'>User List</h2>
+        <h2 className='title'>User</h2>
         <table className='table'>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th className='id'>ID</th>
                     <th>Avatar</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -32,7 +32,7 @@ function UserList() {
                         <td>{user.id}</td>
                         <td>
                             <img
-                                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=0D8ABC&color=fff&rounded=true`}
+                                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&rounded=true`}
                                 alt={user.name}
                                 className="avatar"
                             />

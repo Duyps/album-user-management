@@ -1,0 +1,170 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 95%;
+    height: 100%;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+/* Toàn bộ bảng */
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Loại bỏ đường viền giữa các ô */
+  font-size: 14px;
+}
+
+/* Header - không có nền */
+.table thead tr {
+  background-color: #FAFAFA;
+  text-align: left;
+}
+
+/* Các ô trong bảng */
+.table th,
+.table td {
+  padding: 20px 10px;
+  
+  text-align: left;
+  border: none; /* Không đường viền giữa các cột */
+}
+
+/* Cột ID căn giữa */
+.album-id {
+  text-align: center;
+}
+
+/* Dòng dữ liệu */
+.table tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover cả dòng */
+.table tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.user-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.show-button {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+.perpage{
+    margin-top: 30px;
+    text-align: right;
+    select{
+      
+    }
+}
+.pagination {
+    justify-content: end;
+    margin-top: 12px;
+  }
+
+.select-container {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+/* Dropdown select */
+.select-container select {
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Pagination container */
+.pagination {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* Pagination button */
+.page-button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.page-button:hover {
+  background-color: #e0e0e0;
+}
+
+.page-button.active {
+  border-color: #007bff;
+}
+
+/*-------------------ALBUM DETAIL-------------------*/
+.album-detail{
+  width: 95%;
+  padding: 20px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  .back-btn{
+    border:none;
+    width: fit-content;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .user-info{
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    img{
+      margin: 20px;
+    }
+    .infor{
+      a{
+          text-decoration: none;
+          color: #1677FF;
+        }
+      .user-name-link{
+        h2{
+          color: #1677FF;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+}

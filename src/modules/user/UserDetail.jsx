@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
+import './user.css';
+
 function UserDetail() {
     const { id } = useParams();
   const [user, setUser] = useState(null);
@@ -25,16 +27,19 @@ function UserDetail() {
 
   return (
     <div className="main">
-      <Link to="/users" className="back-link">← Back to Users</Link>
+      <button className="back-btn" onClick={() => navigate('/')}>
+        ← Show User
+      </button>
+
       <div className="user-info">
         <img
-          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=0D8ABC&color=fff&rounded=true`}
-          alt={user.name}
-          className="avatar-large"
+          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&rounded=true`}
+          alt={`${user.name} avatar`}
+          className="avatar"
         />
-        <div>
-          <h2>{user.name}</h2>
-          <p><a href={`mailto:${user.email}`}>{user.email}</a></p>
+        <div className='infor'>
+          <Link to={`/users/${user.id}`} className="user-name-link"><h2>{user.name}</h2></Link>
+          <a href={`mailto:${user.email}`}>{user.email}</a>
         </div>
       </div>
 

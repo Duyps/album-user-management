@@ -1,0 +1,14 @@
+.header{
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  background-color: white;
+  .logo{
+    img{
+      width: 100px;
+      margin: 20px;
+    }
+  }
+}

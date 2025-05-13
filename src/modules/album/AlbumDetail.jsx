@@ -32,22 +32,22 @@ function AlbumDetail() {
   return (
     <div className="album-detail">
       <button className="back-btn" onClick={() => navigate('/')}>
-        ← Back to Albums
+        ← Show Album
       </button>
 
       <div className="user-info">
         <img
-          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}`}
+          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=random&rounded=true`}
           alt={`${user.name} avatar`}
           className="avatar"
         />
-        <div>
+        <div className='infor'>
           <Link to={`/users/${user.id}`} className="user-name-link"><h2>{user.name}</h2></Link>
           <a href={`mailto:${user.email}`}>{user.email}</a>
         </div>
       </div>
 
-      <h3>Album: {album.title}</h3>
+      <h3>{album.title}</h3>
 
       <div className="photo-grid">
         {photos.map(photo => (
