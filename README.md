@@ -24,6 +24,17 @@ This is a responsive web application built with **React** that displays albums, 
 - **React Router** – routing and navigation
 - **FontAwesome** – UI icons
 - **Custom CSS** – responsive styling
-- **UI Avatars API** – dynamic avatar generation
+- **UI Avatars API** – dynamic avatar generation    
 - **JSONPlaceholder** – mock REST API for albums, users, and photos
+  
+## 🛠️ Getting Started
 
+### 1. Clone the Repository
+git clone https://github.com/Duyps/album-user-management.git
+cd album-user-management
+
+### 2.  Install Dependencies
+npm install
+
+### 3.  Run the Development Server
+npm run dev
